@@ -63,13 +63,13 @@ DELETE /api/projects/:projectId – Delete a project
 
 Tasks
 
-GET /api/projects/:projectId/tasks – Get tasks for a project
+GET /api/tasks/:projectId – Get tasks for a project
 
-POST /api/projects/:projectId/tasks – Add new task
+POST /api/tasks/:projectId – Add new task
 
-PUT /api/projects/:projectId/tasks/:taskId – Update task
+PUT /api/tasks/:projectId/:taskId – Update task
 
-DELETE /api/projects/:projectId/tasks/:taskId – Delete task
+DELETE /api/tasks/:projectId/:taskId – Delete task
 
 Installation
 
