@@ -1,50 +1,113 @@
-# Skills Forge
+Skills Forge
 
-A backend API for managing user skills, projects, and project tasks. Built with **Node.js**, **Express**, and **MongoDB** (Mongoose). Users can create accounts, manage profiles, add projects, and organize tasks within projects.
+Skills Forge is a backend-focused project built with Node.js, Express, and MongoDB, designed to help users manage their skills, projects, and tasks efficiently. It features user authentication, project management, and task tracking as sub-documents within projects.
 
----
+Features
 
-## 🚀 Features
+User registration and login with secure password hashing
 
-- User authentication (signup, login) with hashed passwords.
-- Profile management (bio, profile picture, skills).
-- Project management (CRUD operations).
-- Task management as subdocuments inside projects (CRUD operations).
-- Role-based authorization (`user`, `admin`).
-- Proper error handling and validation.
+Role-based access control (user and admin)
 
----
+Manage user profile with bio, skills, and profile picture
 
-## 📂 Folder Structure
+CRUD operations for projects
 
+Nested CRUD operations for tasks inside projects
+
+Track project skills and task statuses (pending, in-progress, completed)
+
+JWT authentication for secure endpoints
+
+Error handling and validations
+
+Tech Stack
+
+Backend: Node.js, Express.js
+
+Database: MongoDB with Mongoose
+
+Authentication: JWT, bcrypt
+
+Tools: Postman for API testing
+
+Folder Structure
 skills-forge/
-├─ controllers/ # Business logic for users, projects, tasks
-├─ models/ # Mongoose schemas
-├─ routes/ # API route definitions
-├─ middlewares/ # Authentication, authorization, error handling
-├─ config/ # DB connections, environment configs
-├─ utils/ # Helper functions
-├─ server.js # Entry point of the application
+├─ config/             # Configuration files
+├─ controllers/        # Route handlers
+├─ middlewares/        # Authentication and error handling
+├─ models/             # Mongoose models
+├─ routes/             # API routes
+├─ util/               # Utility functions
+├─ server.js           # Entry point
 ├─ package.json
-├─ .env # Environment variables (ignored in Git)
-└─ README.md
+├─ .gitignore
 
+API Endpoints
+User
 
----
+POST /api/auth/register – Register new user
 
-## ⚡ Installation
+POST /api/auth/login – Login user
 
-1. Clone the repository:
-```bash
+GET /api/auth/profile – Get logged-in user profile
+
+Projects
+
+GET /api/projects – Get all projects
+
+POST /api/projects – Add new project
+
+PUT /api/projects/:projectId – Update a project
+
+DELETE /api/projects/:projectId – Delete a project
+
+Tasks
+
+GET /api/projects/:projectId/tasks – Get tasks for a project
+
+POST /api/projects/:projectId/tasks – Add new task
+
+PUT /api/projects/:projectId/tasks/:taskId – Update task
+
+DELETE /api/projects/:projectId/tasks/:taskId – Delete task
+
+Installation
+
+Clone the repo:
+
 git clone https://github.com/juneboy933/skills-forge.git
 cd skills-forge
 
-2. Install dependncies
+
+Install dependencies:
+
 npm install
 
-3. Create a .env file in the root and add the following variables:
 
-PORT=4000
-MONGODB_URI=your_mongodb_connection_string
-ACCESS_TOKEN_SECRET=your_jwt_secret
-REFRESH_TOKEN_SECRET=your_jwt_secret
+Setup environment variables:
+
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+
+
+Start the server:
+
+npm run dev
+
+
+The API will be available at http://localhost:5000.
+
+Testing
+
+Use Postman or any API client to test the routes.
+
+Ensure you include the JWT token in the Authorization header for protected routes.
+
+Contributions
+
+Contributions are welcome! Please fork the repository and create a pull request with improvements or bug fixes.
+
+License
+
+MIT License
